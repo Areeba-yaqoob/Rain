@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rainy Vibes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: #0e1a2b;
+      color: #fff;
+    }
+
+    .rainy-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .rain {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.3) 0px,
+        rgba(255, 255, 255, 0.3) 2px,
+        transparent 2px,
+        transparent 10px
+      );
+      animation: rain 0.3s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rain {
+      from {
+        background-position: 0 -20px;
+      }
+      to {
+        background-position: 0 100%;
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding-top: 50px;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #8cd3ff;
+    }
+
+    .quote {
+      font-size: 1.2rem;
+      margin: 20px auto;
+      max-width: 500px;
+      color: #eee;
+    }
+
+    .new-vibe-btn {
+      background: linear-gradient(145deg, #6ec6ff, #2196f3);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      color: white;
+      box-shadow: 0 0 20px #2196f3aa;
+      transition: 0.3s ease;
+    }
+
+    .new-vibe-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #2196f3dd;
+    }
+
+    .umbrella {
+      font-size: 4rem;
+      margin-top: 40px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .linkedin-icon {
+      font-size: 1.4rem;
+      margin: 5px;
+    }
+
+    .sound-icon {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rainy-container">
+    <div class="rain"></div>
+    <div class="content">
+     <button class="new-vibe-btn">🌦️ New Vibe</button>
+      <div class="umbrella">☂️</div>
+    </div>
+
+    <div class="footer text-center">
+      Built by Moiz Ali Siddiqui<br />
+      <a href="#" class="linkedin-icon text-info"><i class="bi bi-linkedin"></i></a><br />
+      <div class="sound-icon" onclick="toggleSound()">🔊</div>
+    </div>
+  </div>
+
+  <audio id="rainAudio" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const audio = document.getElementById('rainAudio');
+    let playing = false;
+
+    function toggleSound() {
+      if (playing) {
+        audio.pause();
+        playing = false;
+      } else {
+        audio.play();
+        playing = true;
+      }
+    }
+  </script>
+</body>
+</html>
+    
